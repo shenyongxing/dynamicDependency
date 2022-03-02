@@ -70,6 +70,13 @@ publishing {
         }
     }
 
+    repositories {
+        maven {
+            // 生成的插件位置
+            url = uri('../repo')
+        }
+    }
+
     // 发布到mavenLocal是成功了，但是gradle引用的时候有问题。 mavenLocal貌似是以缓存的路径存在的，引用时并不会搜索这个路径
 
     // 自定义了maven地址，运行的命令就是 publicMavenPublicationToMavenRepository
