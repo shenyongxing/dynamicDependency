@@ -11,14 +11,14 @@ import spock.lang.Specification
  * A simple unit test for the 'dynamicdep.greeting' plugin.
  */
 public class DynamicdepPluginTest extends Specification {
-    def "plugin registers task"() {
-        given:
-        def project = ProjectBuilder.builder().build()
-
-        when:
-        project.plugins.apply("dynamicdep.greeting")
-
-        then:
-        project.tasks.findByName("greeting") != null
-    }
+//    def "plugin registers task"() {
+//        given:
+//        def project = ProjectBuilder.builder().build()
+//
+//        when:
+//        project.plugins.apply("dynamicdep.greeting")
+//
+//        then:
+//        project.tasks.findByName("greeting") != null
+//    }
 }
