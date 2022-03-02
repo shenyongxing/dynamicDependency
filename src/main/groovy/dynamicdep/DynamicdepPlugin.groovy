@@ -82,11 +82,15 @@ public class DynamicdepPlugin implements Plugin<Project> {
 
                             // 如何加入判断，是否存在这个aar文件呢. 2、如何读取flavor，直接替换cn
                             def file = new File("${proj.buildDir}/outputs/aar/${proj.name}-cn-debug.aar")   // 字符串中有变量引用的时候不能用单引号
+                            def file_2 = new File("${proj.buildDir}/outputs/aar/${proj.name}-debug.aar")   // 字符串中有变量引用的时候不能用单引号
+                            def file_3 = new File("${proj.buildDir}/libs/${proj.name}.jar")   // 字符串中有变量引用的时候不能用单引号
                             def final_artifact
                             if (file.exists()) {
                                 final_artifact = "${proj.buildDir}/outputs/aar/${proj.name}-cn-debug.aar"
-                            } else {
+                            } else if (file_2.exists()) {
                                 final_artifact = "${proj.buildDir}/outputs/aar/${proj.name}-debug.aar"
+                            } else {
+                                final_artifact = "${proj.buildDir}/libs/${proj.name}.jar"
                             }
 
 //                            def file_2 = new File('${proj.buildDir}/outputs/aar/${proj.name}-debug.aar')

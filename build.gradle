@@ -13,6 +13,7 @@ plugins {
     // Apply the Groovy plugin to add support for Groovy
     id 'groovy'
     id 'maven-publish'
+    id "com.gradle.plugin-publish" version "0.10.1"
 }
 
 repositories {
@@ -31,7 +32,7 @@ gradlePlugin {
     plugins {
         greeting {
             // 这个id要与最终引用的id是一致的。
-            id = 'cn.sx.dynamicdep'
+            id = 'cn.wps.dynamicdep'
             implementationClass = 'dynamicdep.DynamicdepPlugin'
         }
     }
@@ -61,7 +62,7 @@ check {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'cn.sx'
+            groupId = 'cn.wps'
             artifactId = 'dynamicdep'
             version = '1.1'
 
@@ -79,3 +80,26 @@ publishing {
 //        }
 //    }
 }
+
+// 下面两个task是将插件上传到gradle官网插件库中。
+//gradlePlugin {
+//    plugins {
+//        greetingsPlugin {
+//            id = 'com.wps.dynamicdep' //插件的id
+//            implementationClass = 'dynamicdep.DynamicdepPlugin'
+//        }
+//    }
+//}
+//
+//pluginBundle {
+//    website = 'https://github.com/shenyongxing/dynamicDependency'
+//    vcsUrl = 'https://github.com/shenyongxing/dynamicDependency'
+//    description = 'subtitue project implmenetion with module' //插件描述
+//    tags = ['dynamic dependency'] //搜索关键词
+//    plugins {
+//        greetingsPlugin {
+//            // id is captured from java-gradle-plugin configuration
+//            displayName = 'dynamic dependency gradle plugin'
+//        }
+//    }
+//}
